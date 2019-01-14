@@ -1,0 +1,31 @@
+import createModel, { Tction } from '@src/utils/createModel';
+
+export interface State {
+
+}
+
+export const ${camelName}State: State = {
+
+}
+
+export default createModel({
+  state: ${camelName}State,
+  namespace: '${camelName}',
+  reducers: {
+    // @params.0 state
+    // @params.0 action
+    // doSomething: (state, action: Tction<{ username: string }>) => {
+    //   return {
+    //     ...state,
+    //     username: action.payload.username
+    //   };
+    // }
+  },
+  effects: {
+    // @params.0 sagaEffect
+    // @params.0 action
+    // *doSomethingAsync({ namespace, put }, action: Tction<{ username: string }>): Iterator<{}> {
+    //   yield put({ type: `$\{namespace}/doLogin`, payload: { username: '' } });
+    // }
+  }
+});

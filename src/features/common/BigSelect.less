@@ -1,0 +1,89 @@
+@import '~antd/es/input/style/mixin.less';
+@import '../../styles/mixins.less';
+.Select {
+  .Select-control {
+    border-radius: 2px;
+    height: 32px;
+    .Select-clear-zone {
+      display: none;
+    }
+  }
+  .Select-value {
+    font-size: @font-size-base;
+  }
+  .Select-menu-outer {
+    font-size: @font-size-base;
+  }
+  .Select-multi-value-wrapper {
+    height: 32px;
+  }
+  .Select-placeholder {
+    font-size: 14px;
+  }
+  &.is-open > .Select-control {
+    .active;
+  }
+  &.is-focused {
+    border-radius: 2px;
+    outline: 0;
+    border-right-width: 1px !important;
+  }
+  &.is-disabled > .Select-control {
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+  .Select-clear-zone {
+    position: relative;
+    z-index: 1;
+    width: 25px;
+    padding: 5px 5px 5px 0;
+    text-align: center;
+    .Select-clear {
+      position: absolute;
+      margin-top: -6px;
+      margin-left: -9px;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      font-size: 12px;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: lighter;
+      background: @disabled-color;
+      &:hover {
+        background: @text-color;
+      }
+    }
+  }
+  &.has-value {
+    &.Select--single.is-disabled > .Select-control .Select-value .Select-value-label,
+    &.is-pseudo-focused.Select--single.is-disabled
+      > .Select-control
+      .is-disabled
+      .Select-value
+      .Select-value-label {
+      color: @disabled-color;
+    }
+    &:hover {
+      .Select-arrow-zone {
+        display: none;
+      }
+      .Select-clear-zone {
+        display: table-cell;
+      }
+    }
+  }
+}
+
+.Select--multi {
+  .Select-value {
+    background-color: @text-color-active;
+    color: #ffffff;
+    border: none;
+  }
+  .Select-value-icon {
+    border: none;
+  }
+}

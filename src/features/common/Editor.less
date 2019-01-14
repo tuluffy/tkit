@@ -1,0 +1,16 @@
+@import '../../styles/mixins';
+@import '~quill/dist/quill.snow.css';
+
+.k-common-editor {
+  padding-bottom: 42px;
+  .ql-container {
+    font-size: 14px;
+  }
+  .ql-disabled {
+    background: @k-disabled-bg;
+    color: @disabled-color;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}

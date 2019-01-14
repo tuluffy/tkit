@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build/dist",
+    "module": "esNext",
+    "target": "es3",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "noEmitHelpers": true,
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types", "./typings", "src/**/*.d.ts", "*.d.ts"],
+    "traceResolution": false,
+    "skipLibCheck": true,
+    "paths": {
+      "@ajax": ["src/utils/new-ajax"],
+      "@src/*": ["src/*"],
+      "@features/*": ["src/features/*"],
+      "tslib": ["./node_modules/tslib/tslib"],
+      "antd": ["node_modules/antd/es/"]
+    }
+  },
+  "exclude": ["node_modules", "build", "scripts", "acceptance-tests", "webpack", "jest"]
+}

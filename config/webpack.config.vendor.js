@@ -1,0 +1,26 @@
+// @todo
+const vender = [
+  'babel-runtime',
+  'react',
+  'react-dom',
+  'classnames',
+  'lodash',
+  'promise/lib/rejection-tracking',
+  'promise/lib/es6-extensions',
+  'whatwg-fetch',
+  'object-assign',
+  'redux',
+  'react-redux',
+  'redux-saga',
+  'redux-actions',
+  'react-router',
+  'react-router-dom',
+  'react-router-redux',
+  'eventemitter3',
+  'reselect',
+  'immer',
+  'react-intl',
+  'moment',
+  'qs',
+  'quill'
+];

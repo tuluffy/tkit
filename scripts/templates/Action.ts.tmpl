@@ -1,0 +1,24 @@
+import { createAction, handleActions, Action } from 'redux-actions';
+
+import { IInitialState } from './initialState';
+
+export const <%= constsName %> = '<%= feature %>/<%= constsName %>';
+
+export const <%= actionName %> = createAction(<%= constsName %>);
+
+export interface I<%= pascalName %>State {
+  // use Readonly
+  // <%= actionName %>: Readonly<{}>
+}
+
+export const <%= pureStateName %>: I<%= pascalName %>State = {
+};
+
+export const <%= reducerName %> = handleActions(
+  {
+    [<%= constsName %>]: (state: IInitialState, action: Action<any>): IInitialState => {
+      return { ...state };
+    }
+  },
+  <%= pureStateName %>
+);

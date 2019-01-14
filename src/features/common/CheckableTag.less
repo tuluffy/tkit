@@ -1,0 +1,37 @@
+@import '../../styles/mixins';
+
+.k-common-checkable-tag {
+  margin-bottom: -8px;
+  .ant-tag-checkable {
+    .k-common-height;
+    background: @k-empty-bg;
+    border-radius: @border-radius-base;
+    border-color: @border-color-base-secondary;
+    min-width: 82px;
+    text-align: center;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: @disabled-color;
+    &:hover {
+      color: @primary-color;
+    }
+    &.ant-tag-checkable-checked {
+      border-color: @primary-color;
+      color: #fff;
+      background: @primary-color;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &.k-common-disabled {
+    .ant-tag-checkable {
+      background: @k-disabled-bg;
+      &:hover {
+        color: @disabled-color;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../../styles/mixins';
+
+.ant-layout-header {
+  box-shadow: 10px 0px 4px 4px #eee;
+}
+.header {
+  position: relative;
+  height: 68px;
+  &__dropdown {
+    position: absolute;
+    right: 28px;
+    span:nth-child(2) {
+      margin-right: 6px;
+    }
+  }
+  &__avatar {
+    height: 38px;
+    width: 38px;
+    border-radius: 19px;
+    margin-right: 12px;
+  }
+}

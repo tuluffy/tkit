@@ -1,0 +1,47 @@
+import { createAction, handleActions, Action } from 'redux-actions';
+import { delay } from 'redux-saga';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
+import { IInitialState } from '../redux/initialState';
+
+export const <%= constsName %> = '<%= feature %>/<%= constsName %>';
+export const <%= constsName %>_SUCCESS = <%= constsName %> + '_SUCCESS';
+export const <%= constsName %>_FAILED = <%= constsName %> + '_FAILED';
+
+export const <%= actionName %> = createAction(<%= constsName %>);
+
+export function* fetchData () {
+  let res;
+  try {
+    res = yield call(delay, 20);
+  } catch (err) {
+    res = {
+      code: 10002,
+      message: err.message
+    };
+  }
+  yield put({
+    type: res && res.code ? <%= constsName %>_FAILED : <%= constsName %>_SUCCESS,
+    payload: res
+  });
+}
+
+export function* <%= sagaName %>() {
+  yield takeLatest(<%= constsName %>, fetchData);
+}
+
+export interface I<%= pascalName %>State {
+  // use Readonly
+  // <%= actionName %>: Readonly<any>
+}
+
+export const <%= pureStateName %>: I<%= pascalName %>State = {
+};
+export const <%= reducerName %> = handleActions(
+  {
+    [<%= constsName %>_SUCCESS]: (state: IInitialState, action: Action<any>): IInitialState => {
+      return { ...state };
+    }
+  },
+  <%= pureStateName %>
+);

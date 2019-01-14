@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+
+.k-sider {
+  height: 100vh;
+  overflow-y: auto;
+  .logo {
+    width: 126px;
+    height: 36px;
+    margin: 16px 30px;
+    background: url('../../../assets/logo.png') 50% / contain no-repeat;
+  }
+  .menu-list {
+    margin-top: 40px;
+    .kiconfont {
+      margin-right: 10px;
+      font-size: @text-font-size-secondary;
+    }
+    .title {
+      font-size: @text-font-size-secondary;
+    }
+  }
+  .ant-menu-inline,
+  .ant-menu-vertical,
+  .ant-menu-vertical-left {
+    border-right: none;
+  }
+}

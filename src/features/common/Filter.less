@@ -1,0 +1,53 @@
+@import '../../styles/mixins';
+
+.k-common-filter {
+  .k-common-form {
+    margin-bottom: 16px;
+  }
+  .ant-btn {
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 14px;
+    width: 126px;
+    height: 34px;
+    margin-right: 24px;
+  }
+  .no-form {
+    width: auto;
+    margin-right: -@filter-form-item-margin-right;
+  }
+  .no-form-item-label {
+    color: @disabled-color;
+    line-height: 34px;
+  }
+  .no-form-item {
+    width: 288px;
+    margin: 12px @filter-form-item-margin-right 0 0;
+    > div {
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+    .no-form-item-label {
+      flex: 0 0 10px;
+      padding-left: 21px;
+      padding-right: 0;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .no-form-item-control {
+      flex: 1 1 auto;
+    }
+    .no-form-item-content-elem > * {
+      min-width: auto;
+    }
+  }
+  .no-form-item-inset {
+    border-radius: @border-radius-base;
+  }
+  margin-bottom: 16px;
+  .ant-input,
+  .ant-select-selection {
+    border: none;
+  }
+}

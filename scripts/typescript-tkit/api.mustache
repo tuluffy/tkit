@@ -1,0 +1,105 @@
+{{>licenseInfo}}
+import ajax, { AjaxPromise, ExtraFetchParams } from '@ajax';
+{{^models.isEmpty}}
+import * as models from '../model/models';
+{{/models.isEmpty}}
+
+/* tslint:disable:no-unused-variable member-ordering object-literal-shorthand */
+
+{{#operations}}
+{{#operation}}
+export interface Params{{nickname}} extends ExtraFetchParams {
+{{#headerParams.0}}
+    header: {
+        {{#headerParams}}
+        {{paramName}}{{^required}}?{{/required}}: {{&dataType}};
+        {{/headerParams}}
+    },
+{{/headerParams.0}}
+{{#pathParams.0}}
+    path: {
+        {{#pathParams}}
+        {{paramName}}{{^required}}?{{/required}}: {{&dataType}};
+        {{/pathParams}}
+    },
+{{/pathParams.0}}
+{{#queryParams.0}}
+    query: {
+        {{#queryParams}}
+        {{paramName}}{{^required}}?{{/required}}: {{&dataType}};
+        {{/queryParams}}
+    },
+{{/queryParams.0}}
+{{#formParams.0}}
+    form: {
+        {{#formParams}}
+        {{paramName}}{{^required}}?{{/required}}: {{&dataType}};
+        {{/formParams}}
+    },
+{{/formParams.0}}
+    {{#bodyParam}}
+    data{{^required}}?{{/required}}: {{&dataType}}
+    {{/bodyParam}}
+}
+{{/operation}}
+{{#description}}
+/**
+ * {{&description}}
+ */
+{{/description}}
+export class {{classname}} {
+    protected $basePath = '{{{contextPath}}}';
+
+    public constructor(basePath?: string) {
+        if (basePath !== undefined) {
+            this.$basePath = basePath;
+        }
+    }
+
+{{#operation}}
+    /**
+     * {{&notes}}
+     {{#summary}}
+     * @summary {{&summary}}
+     {{/summary}}
+     {{#allParams}}
+     * @param {{paramName}} {{description}}
+     {{/allParams}}
+     */
+    public {{nickname}} = (
+        params: Params{{nickname}}
+    ) : AjaxPromise<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}{}{{/returnType}}>  => {
+        const url = this.$basePath + '{{{path}}}'{{#pathParams.0}}
+            .replace(/\{([^}]+)\}/g, (all, param) => (param in params.path ? params.path[param] : param)){{/pathParams.0}};
+            
+{{#queryParams}}
+        {{#required}}
+        ajax.check(params.query.{{paramName}}, 'query.{{paramName}}');
+        {{/required}}
+{{/queryParams}}
+{{#pathParams}}
+        {{#required}}
+        ajax.check(params.path.{{paramName}}, 'path.{{paramName}}');
+        {{/required}}
+{{/pathParams}}
+{{#formParams}}
+        {{#required}}
+        ajax.check(params.form.{{paramName}}, 'form.{{paramName}}');
+        {{/required}}
+{{/formParams}}
+{{#bodyParam}}
+        {{#required}}
+        ajax.check(params.data, 'body.{{paramName}}');
+        {{/required}}
+{{/bodyParam}}
+        return ajax.ajax({
+            method: '{{httpMethod}}',
+            url,
+            ...params
+        });
+    }
+{{/operation}}
+}
+{{/operations}}
+
+export default new {{classname}}();

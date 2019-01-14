@@ -1,0 +1,44 @@
+.k-common-layer {
+  .dropdown {
+    &__menu {
+      position: relative;
+      z-index: 3;
+      padding: 10px 60px 10px 10px;
+      &::before {
+        position: absolute;
+        top: -20px;
+        right: 14px;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        color: rgba(0, 0, 0, 0.8);
+        pointer-events: none;
+        content: '';
+        border: 10px solid transparent;
+        border-bottom-color: #fff;
+      }
+      &::after {
+        position: absolute;
+        top: -22px;
+        right: 13px;
+        width: 0;
+        height: 0;
+        color: rgba(0, 0, 0, 0.8);
+        pointer-events: none;
+        content: '';
+        border: 11px solid transparent;
+        border-bottom-color: #dddfe3;
+        z-index: 0;
+      }
+      .ant-dropdown-menu-item > a,
+      .ant-dropdown-menu-submenu-title > a {
+        color: @text-color-secondary;
+        font-size: 14px;
+      }
+    }
+    &__item {
+      font-size: 14px;
+      color: @text-color-secondary;
+    }
+  }
+}

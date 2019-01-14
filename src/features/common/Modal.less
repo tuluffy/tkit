@@ -1,0 +1,26 @@
+@import '../../styles/mixins';
+
+.k-common-modal {
+  border-radius: @border-radius-base-secondary;
+  .ant-modal-footer {
+    text-align: center;
+    border-top: none;
+    padding: 31px 0 35px;
+    .ant-btn {
+      height: 34px;
+      line-height: 34px;
+      font-size: 16px;
+      width: 138px;
+      padding: 0;
+      &:not(:last-child) {
+        margin-right: 27px;
+      }
+    }
+  }
+  .ant-modal-header {
+    border-bottom: none;
+  }
+  .ant-modal-content {
+    border-radius: @border-radius-base-secondary;
+  }
+}

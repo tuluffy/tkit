@@ -11,7 +11,7 @@ typescript react app 脚手架
   proxy: {}
 ```
 
-## REQUIRES
+## REQUIREMENTS
 
 _请勿使用 cnpm!!不然会使得 npm-shrinkwrap.json 版本锁定文件不生效_
 
@@ -122,6 +122,16 @@ export default createModel({
 
 ```shell
   ./scripts/kit.js add action feature/sagaName -a
+```
+
+##### tPull, tCall
+
+原生的 redux-saga put & call 对 effect 的调用是 untyped，因此在 createModel.ts 内封装了 typed tPut & tCall
+
+```tsx
+  tCall(effect, args: typed) - args 类型必须是 effect 定义的参数类型
+  // 对于通过 redux-actions createAction 创建的 actions【通过 toString = () => action.name 】:
+  tPut(action, args: typed) - args 类型必须是 action 定义的参数类型
 ```
 
 #### 创建适配 antd 分页 list action
